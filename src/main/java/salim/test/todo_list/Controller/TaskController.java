@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.qos.logback.core.net.SyslogOutputStream;
 
 @RestController
-@RequestMapping(path = "tasks")
+@RequestMapping("/tasxks")
 public class TaskController {
 
-    @GetMapping(path = "string")
-    public String geString(){
-        System.out.println("salut");
-        return "Salut";
-    }
- 
+    @GetMapping("/str")
+    public String Salut(){
+        return "Salut mon pote";
+    } 
 }
