@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import salim.test.todo_list.Model.Statut;
 import salim.test.todo_list.Service.TaskService;
 
 @RestController
 @RequestMapping("/task")
 public class TaskController {
 
-       @Autowired
+    @Autowired
     private TaskService service;
 
     @GetMapping
@@ -30,6 +29,11 @@ public class TaskController {
             return service.getByStatut(statut);
         }
         return service.getAll();
+    }
+
+    @GetMapping("/statut/{statut}")
+    public List<Task> getByStatut(@PathVariable Statut statut) {
+        return service.getByStatut(statut);
     }
 
     @PostMapping

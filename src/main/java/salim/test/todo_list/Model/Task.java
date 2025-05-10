@@ -14,7 +14,7 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Statut statut;
     private LocalDateTime dateCreation;
-    private LocalDateTime dataEcheance;
+    private LocalDateTime dateEcheance;
     @PrePersist
     public void prePersist() {
     dateCreation = LocalDateTime.now();
@@ -30,6 +30,11 @@ public class Task {
 
     public Statut getStatut() { return statut; }
     public void setStatut(Statut statut) { this.statut = statut; }
+    public LocalDateTime getDateCreation() { return dateCreation; }
+    public void setDateCreation(LocalDateTime dateCreation) { this.dateCreation = dateCreation; }
+
+    public LocalDateTime getDateEcheance() { return dateEcheance; }
+    public void setDateEcheance(LocalDateTime dateEcheance) { this.dateEcheance = dateEcheance; }
 
 
 }
