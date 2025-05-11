@@ -30,7 +30,7 @@ public class TaskController {
 
     //public List<Task> getAll(@RequestParam(required = false) Statut statut) {      //sert à combiner getall et getbystatut
     //    if (statut != null) {
-  //          return service.getByStatut(statut);
+   //          return service.getByStatut(statut);
   //      }
  //       return service.getAll();
  //   }
@@ -38,6 +38,10 @@ public class TaskController {
     @GetMapping("/statut/{statut}")
     public List<Task> getByStatut(@PathVariable Statut statut) {
         return service.getByStatut(statut);
+    }
+    @GetMapping("/{id}")
+    public Task getById(@PathVariable Long id) {
+        return service.getById(id);
     }
 
     @PostMapping
