@@ -24,10 +24,8 @@ public class TaskController {
     private TaskService service;
 
     @GetMapping
-    public List<Task> getAll(@RequestParam(required = false) Statut statut) {
-        if (statut != null) {
-            return service.getByStatut(statut);
-        }
+    public List<Task> getAll() {
+        
         return service.getAll();
     }
 
