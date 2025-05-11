@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import salim.test.todo_list.Service.TaskService;
@@ -24,10 +24,16 @@ public class TaskController {
     private TaskService service;
 
     @GetMapping
-    public List<Task> getAll() {
-        
+    public List<Task> getAll(){
         return service.getAll();
     }
+
+    //public List<Task> getAll(@RequestParam(required = false) Statut statut) {      //sert à combiner getall et getbystatut
+    //    if (statut != null) {
+  //          return service.getByStatut(statut);
+  //      }
+ //       return service.getAll();
+ //   }
 
     @GetMapping("/statut/{statut}")
     public List<Task> getByStatut(@PathVariable Statut statut) {
