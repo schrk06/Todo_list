@@ -39,6 +39,10 @@ public class TaskController {
     public List<Task> getByStatut(@PathVariable Statut statut) {
         return service.getByStatut(statut);
     }
+    @GetMapping("/Id/{id}")
+    public Task getByIdTask(@PathVariable Long id){
+        return service.getByIdTask(id);
+    }
 
     @PostMapping
     public Task create(@RequestBody Task task) {

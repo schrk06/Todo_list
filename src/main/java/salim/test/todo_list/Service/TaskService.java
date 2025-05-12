@@ -4,6 +4,8 @@ import salim.test.todo_list.Repository.TaskRepository;
 
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,9 @@ public class TaskService {
 
     public List<Task> getByStatut(Statut statut) {
         return repository.findByStatut(statut);
+    }
+    public Task getByIdTask(Long id){
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Tâche introuvable"));
     }
   
 
