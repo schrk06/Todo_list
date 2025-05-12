@@ -4,7 +4,6 @@ import salim.test.todo_list.Repository.TaskRepository;
 
 import java.util.List;
 
-import javax.management.RuntimeErrorException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
