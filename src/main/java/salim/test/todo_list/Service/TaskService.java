@@ -19,13 +19,14 @@ public class TaskService {
     public List<Task> getByStatut(Statut statut) {
         return repository.findByStatut(statut);
     }
+  
 
     public Task create(Task task) {
         return repository.save(task);
     }
 
     public Task update(Long id, Task task) {
-        Task existing = repository.findById(id).orElseThrow();
+        Task existing = repository.findById(id).orElseThrow(() -> new RuntimeException("Tâche introuvable"));
         existing.setTitre(task.getTitre());
         existing.setDescription(task.getDescription());
         existing.setStatut(task.getStatut());
@@ -34,7 +35,7 @@ public class TaskService {
     }
 
     public void delete(Long id) {
-        Task task = repository.findById(id).orElseThrow();
+        Task task = repository.findById(id).orElseThrow(() -> new RuntimeException("Tâche introuvable"));
         if (task.getStatut() == Statut.TERMINEE) {
             throw new IllegalStateException("Impossible de supprimer une tâche terminée");
         }
